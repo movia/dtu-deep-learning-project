@@ -7,7 +7,7 @@ Each row corresponds to one passenger trip on a scheduled vehicle journey (i.e. 
 - ``JourneyRef`` A unique reference to the planned journey, that this passenger trip (tap in) was matched to using vehicle journey assignment.
 - ``Time`` The time for the passenger trip in local time, specifically the departure from ``FromStopPointID`` as recorded by AVL, or the planned departure if no AVL data was recorded for that journey point.
 - ``LineNumber`` The line the vehicle journey is scheduled on, e.g. ``300S`` = 300.
-- ``LineDirectionCode`` The direction of the line the vehicle journey is scheduled on. e.g. ``1`` or ``1``. There is really no logic in the choice of directions.
+- ``LineDirectionCode`` The direction of the line the vehicle journey is scheduled on. e.g. ``1`` or ``2``. There is really no logic in the choice of which of the direction is ``1``, respectfully ``2``.
 - ``FromStopPointID`` Where the passenger boarded (tapped in) on the vehicle journey.
 - ``ToStopPointID`` Where the passenger alighted from the vehicle journey. This can be observed directly (if the passenger tapped out), or indirectly, if the passenger alighed (without tapping out), and transfered to another public transport service. In the latter, we will assign the stop point closest (in distance) to the passengers next tap in.
 - ``FromTimingPointAbbreviation`` The upstream closests timing point from where the passenger boarded (tapped in) on the vehicle journey. If the passenger tapped on at a timing point, this will be assigned.
