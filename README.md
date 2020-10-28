@@ -16,6 +16,10 @@ Each row corresponds to one passenger trip on a scheduled vehicle journey (i.e. 
 - ``ToTimingPointOrder`` A topological order of the FromTimingPoint on Line / Line Direction level. Can be used to build "topological correct" OD-matrices.
 
 ### AFC - Timing Point OD Matrices (od-*xxx*.npy.gz)
-Are contrusted from the above dataset for a single line at a time. Consists of a numpy array of size ``T x W x W``, where `T` is number of timestamps, and `W` is the number of timing points on the given line.
+Are contrusted from the above dataset for a single line at a time. To avoid very sparse OD-matrices we have used the Timing Point assignments. This reduces the OD-sizes with an order of magnitude. Consists of a numpy array of size ``T x W x W``, where `T` is number of timestamps, and `W` is the number of timing points on the given line.
 
 The values of ``T`` is available in a seperate file od-*xxx*-time.npy.gz, and the values of `W` (i.e. the timing point abbreviations) in od-*xxx*-stops.npy.gz
+
+The value od the OD-matrix at (*i*,*j*,*k*) is the number of passengers traveling from timing point *j* to *k* at time *i*.
+
+### Supply - Time table (data-journey-*xxx*.csv.gz)
