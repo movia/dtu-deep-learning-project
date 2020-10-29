@@ -1,4 +1,6 @@
-# dtu-deep-learning-project
+# Crowdedness prediction in public transport under Covid-19
+
+Project proposal for DTU course 02456 Deep learning (2020)
 
 ## Data sets
 
