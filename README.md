@@ -24,6 +24,6 @@ The content is a numpy array of size ``T x W x W``, where `T` is number of times
 
 The values of ``T`` is available in a seperate file od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-time.npy.gz, and the values of `W` (i.e. the timing point abbreviations) in od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-stops.npy.gz.
 
-The value od the OD-matrix at (*i*,*j*,*k*) is the number of passengers traveling from timing point *j* to *k* at time *i* (boarded at *j* at time *i*). 
+The value of the OD-matrix at (*i*,*j*,*k*) is the number of passengers traveling from timing point *j* to *k* at time *i* (boarded at *j* at time *i*). 
 
 ### Supply - Time table (data-journey-*xxx*.csv.gz)
