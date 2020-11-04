@@ -17,11 +17,13 @@ Each row corresponds to one passenger trip on a scheduled vehicle journey (i.e. 
 - ``FromTimingPointOrder`` A topological order of the ToTimingPoint on Line / Line Direction level. Can be used to build "topological correct" OD-matrices.
 - ``ToTimingPointOrder`` A topological order of the FromTimingPoint on Line / Line Direction level. Can be used to build "topological correct" OD-matrices.
 
-### AFC - Timing Point OD Matrices (od-demand-*xxx*.npy.gz)
-Are contrusted from the above dataset for a single line at a time. To avoid very sparse OD-matrices we have used the Timing Point assignments. This reduces the OD-sizes with an order of magnitude. Consists of a numpy array of size ``T x W x W``, where `T` is number of timestamps, and `W` is the number of timing points on the given line.
+### AFC - Timing Point OD Demand Matrices (od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz)
+Are contrusted from the above dataset for a single line at a time. To avoid very sparse OD-matrices we have used the Timing Point assignments. This reduces the OD-sizes with an order of magnitude. The format on the file name is: od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz. `line_number` corresponds the public line designation, however without letters, e.g. 15E will have `line_number` = 15. `sample_freq` is the time frequency in which the trips have ben aggregated (summed), `export_date` is the date of export, and `num_days` is the number of days exported leading up to export_date. Example: od-15-1H-20201101-60-demand.npy.gz consists of Timing Point OD-demand matrices for 15E, every time step is 1 hour, the time series is ending November 1 2020, and consists of 60 days of data leading up to this date.
 
-The values of ``T`` is available in a seperate file od-*xxx*-time.npy.gz, and the values of `W` (i.e. the timing point abbreviations) in od-*xxx*-stops.npy.gz
+The content is a numpy array of size ``T x W x W``, where `T` is number of timestamps, and `W` is the number of timing points on the given line.
 
-The value od the OD-matrix at (*i*,*j*,*k*) is the number of passengers traveling from timing point *j* to *k* at time *i* (boarded at *j* at time *i*).
+The values of ``T`` is available in a seperate file od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-time.npy.gz, and the values of `W` (i.e. the timing point abbreviations) in od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-stops.npy.gz.
+
+The value od the OD-matrix at (*i*,*j*,*k*) is the number of passengers traveling from timing point *j* to *k* at time *i* (boarded at *j* at time *i*). 
 
 ### Supply - Time table (data-journey-*xxx*.csv.gz)
