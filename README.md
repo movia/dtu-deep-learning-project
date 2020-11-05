@@ -20,7 +20,7 @@ Each row corresponds to one passenger trip on a scheduled vehicle journey (i.e. 
 ### AFC - Timing Point OD Demand Matrices (od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz)
 Are contrusted from the above dataset for a single line at a time. To avoid very sparse OD-matrices we have used the Timing Point assignments. This reduces the OD-sizes with an order of magnitude. The format on the file name is: od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz. 
 - `line_number` corresponds the public line designation, however without letters, e.g. 15E will have `line_number` = 15. 
-- `sample_freq` is the time frequency in which the trips has been aggregated (summed).
+- `sample_freq` is the time frequency in which the trips has been aggregated (summed), e.g. 1H, 15min, 30min.
 - `export_date` is the date of export.
 - `num_days` is the number of days exported leading up to `export_date`.
 
