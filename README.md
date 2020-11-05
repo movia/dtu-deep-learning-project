@@ -21,7 +21,7 @@ Each row corresponds to one passenger trip on a scheduled vehicle journey (i.e. 
 Are contrusted from the above dataset for a single line at a time. To avoid very sparse OD-matrices we have used the Timing Point assignments. This reduces the OD-sizes with an order of magnitude. The format on the file name is: od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz. 
 - `line_number` corresponds the public line designation, however without letters, e.g. 15E will have `line_number` = 15. 
 - `sample_freq` is the time frequency in which the trips has been aggregated (summed), e.g. 1H, 15min, 30min.
-- `export_date` is the date of export.
+- `export_date` is the date of export in iso format (YYYYMMDD).
 - `num_days` is the number of days exported leading up to `export_date`.
 
 Example: od-15-1H-20201101-60-demand.npy.gz consists of Timing Point OD-demand matrices for 15E, every time step is 1 hour, the time series is ending November 1 2020, and consists of 60 days of data leading up to this date.
