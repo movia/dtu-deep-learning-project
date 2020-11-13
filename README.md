@@ -33,7 +33,7 @@ The values of ``T`` is available in a seperate file od-*{line_number}*-*{sample_
 
 The value of the OD-matrix at (*i*,*j*,*k*) is the number of passengers traveling from timing point *j* to *k* at time *i* (boarded at *j* at time *i*). 
 
-### APC - Sensor data from Automatic People Counting system, pre-matached with AFC-data (apc-afc-matched-*{schedule_date}*.csv.gz)
+### APC - Sensor data from Automatic People Counting system, pre-matched with AFC-data (apc-afc-matched-*{schedule_date}*.csv.gz)
 Each row corresponds to one vehicle journey visiting one stop on its route. Only rows from busses with the APC-system is included.
 
 - ``JourneyPointRef`` A unique reference to the planned journey stop at the stop point.
