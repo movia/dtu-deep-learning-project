@@ -10,12 +10,13 @@ Each row corresponds to one passenger trip on a scheduled vehicle journey (i.e. 
 - ``Time`` The time for the passenger trip in local time, specifically the departure from ``FromStopPointID`` as recorded by AVL, or the planned departure if no AVL data was recorded for that journey point.
 - ``LineNumber`` The line the vehicle journey is scheduled on, e.g. ``300S`` = 300.
 - ``LineDirectionCode`` The direction of the line the vehicle journey is scheduled on. e.g. ``1`` or ``2``. There is really no logic in the choice of which of the direction is ``1``, respectfully ``2``.
-- ``FromStopPointID`` Where the passenger boarded (tapped in) on the vehicle journey.
-- ``ToStopPointID`` Where the passenger alighted from the vehicle journey. This can be observed directly (if the passenger tapped out), or indirectly, if the passenger alighed (without tapping out), and transfered to another public transport service. In the latter, we will assign the stop point closest (in distance) to the passengers next tap in.
+- ``FromStopPointId`` Where the passenger boarded (tapped in) on the vehicle journey.
+- ``ToStopPointId`` Where the passenger alighted from the vehicle journey. This can be observed directly (if the passenger tapped out), or indirectly, if the passenger alighed (without tapping out), and transfered to another public transport service. In the latter, we will assign the stop point closest (in distance) to the passengers next tap in.
 - ``FromTimingPointAbbreviation`` The upstream closests timing point from where the passenger boarded (tapped in) on the vehicle journey. If the passenger tapped on at a timing point, this will be assigned.
 - ``ToTimingPointAbbreviation`` The downstream closests timing point from where the passenger alighted (tapped out or transfered) on the vehicle journey. If the passenger tapped on at a timing point, this will be assigned.
-- ``FromTimingPointOrder`` A topological order of the ToTimingPoint on Line / Line Direction level. Can be used to build "topological correct" OD-matrices.
-- ``ToTimingPointOrder`` A topological order of the FromTimingPoint on Line / Line Direction level. Can be used to build "topological correct" OD-matrices.
+- ``JourneyPatternRef`` A unique reference to the specific pattern (sequence of stops) that is visited by this scheduled vehicle journey.
+- ``FromTimingPointSequenceNumber`` A topological order of the ``JourneyPatternRef`` level. Can be used to build "topological correct" OD-matrices.
+- ``ToTimingPointSequenceNumber`` A topological order of the ``JourneyPatternRef`` level. Can be used to build "topological correct" OD-matrices.
 
 ### AFC - Timing Point OD Demand Matrices (od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz)
 Are contrusted from the above dataset for a single line at a time. To avoid very sparse OD-matrices we have used the Timing Point assignments. This reduces the OD-sizes with an order of magnitude. The format on the file name is: od-*{line_number}*-*{sample_freq}*-*{export_date}*-*{num_days}*-demand.npy.gz. 
@@ -40,7 +41,7 @@ Each row corresponds to one vehicle journey visiting one stop on its route. Only
 - ``Time`` The time for the passenger trip in local time, specifically the departure from ``FromStopPointID`` as recorded by AVL, or the planned departure if no AVL data was recorded for that journey point.
 - ``LineNumber`` The line the vehicle journey is scheduled on, e.g. ``300S`` = 300.
 - ``LineDirectionCode`` The direction of the line the vehicle journey is scheduled on. e.g. ``1`` or ``2``. There is really no logic in the choice of which of the direction is ``1``, respectfully ``2``.
-- ``StopPointID`` A unique ID of the stop point for the sensor recording. Notice that a journey can in some (relative rare) cases visit the same stop point twice.
+- ``StopPointId`` A unique ID of the stop point for the sensor recording. Notice that a journey can in some (relative rare) cases visit the same stop point twice.
 - ``ApcBordingCount`` Number of passengers boarding at stop stop point as sensored by the APC system.
 - ``ApcAlightingCount`` Number of passengers boarding at stop stop point as sensored by the APC system.
 - ``AfcBordingCount`` Number of passengers boarding at stop stop point as sensored by the AFC system.
